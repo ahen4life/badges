@@ -22,9 +22,9 @@ window.onload = function() {
         var certificate = JSON.parse(certificateText);
 
         if (certificate.validity == false) {
-          document.getElementById(e).style.filter = 'grayscale(100%)';
-          document.getElementById(e).style.pointerEvents = 'none';
-          document.getElementById(e).classList.add('not-selectable');
+          document.getElementById(e).classList.add('badge-deactivated');
+          // document.getElementById(e).style.pointerEvents = 'none';
+          // document.getElementById(e).classList.add('not-selectable');
         }
 
       }
@@ -77,6 +77,7 @@ function modal(e) {
     if (e.validity == false) {
 
       document.getElementById('checkmark').src = 'img/checkmark_false.png';
+      document.getElementById('badge-icon').classList.add('badge-deactivated');
 
     } else {
 
@@ -91,4 +92,5 @@ function modal(e) {
 document.getElementById('close').addEventListener('click', function(e) {
   document.getElementById('modalBox').style.display = 'none';
   document.getElementById('main-content').style.filter = 'none';
+  document.getElementById('badge-icon').classList.remove('badge-deactivated');
 })
