@@ -20,12 +20,38 @@ body {
 .badge {
   width: 170px;
   height: 220px;
+  position: relative;
+}
+
+.badge .tooltip-text {
+  visibility: hidden;
+  width: 150px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0px 5px; 
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  bottom: 0;
+  opacity: 0;
+  margin: -0.8rem auto auto auto;
 }
 
 .badge:hover {
   cursor: pointer;
   opacity: 0.7;
   transition: 0.3s;
+}
+
+.badge:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+  transition: 0.7s;
 }
 
 .modal-container {
@@ -120,10 +146,6 @@ body {
   }
 }
 
-.text-big {
-  font-size: 1.5rem;
-}
-
 .bold {
   font-weight: bold;
 }
@@ -132,7 +154,11 @@ body {
   font-style: italic;
 }
 
-.not-selectable {
+/* .not-selectable {
   -moz-user-select: none;
   user-select: none;
+} */
+
+.badge-deactivated {
+  filter: grayscale(100%);
 }
